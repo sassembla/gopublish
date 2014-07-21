@@ -1,0 +1,81 @@
+  <html>
+      <head>
+          <title></title>
+          <style type="text/css">    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 22.0px Hiragino Kaku Gothic ProN}    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Hiragino Kaku Gothic ProN; min-height: 18.0px}    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Hiragino Kaku Gothic ProN}    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}    p.p5 {margin: 0.0px 0.0px 14.0px 0.0px; text-align: justify; font: 11.0px Arial}    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.0px Arial}    p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Osaka}    p.p8 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 12.0px Helvetica}    p.p9 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}    p.p10 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Menlo; color: #d12f1b; background-color: #ebebeb}    p.p11 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Menlo; background-color: #ebebeb; min-height: 14.0px}    p.p12 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Menlo; color: #bb2ca2; background-color: #ebebeb}    p.p13 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Menlo; background-color: #ebebeb}    p.p14 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Menlo; color: #3d1d81; background-color: #ebebeb}    p.p15 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Menlo; color: #008400; background-color: #ebebeb}    p.p16 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Menlo; color: #703daa; background-color: #ebebeb}    span.s1 {text-decoration: underline}    span.s2 {font: 12.0px Hiragino Kaku Gothic ProN}    span.s3 {font: 12.0px DFPMaruGothic-SB}    span.s4 {font: 42.0px Times}    span.s5 {font: 33.0px Helvetica}    span.s6 {font: 12.0px Helvetica}    span.s7 {color: #78492a}    span.s8 {color: #000000}    span.s9 {color: #bb2ca2}    span.s10 {color: #703daa}    span.s11 {color: #4f8187}    span.s12 {color: #3d1d81}    span.Apple-tab-span {white-space:pre}  </style>
+          <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+          <meta http-equiv="Content-Style-Type" content="text/css"></meta>
+          <meta http-equiv="" content="Cocoa HTML Writer"></meta>
+          <meta http-equiv="" content="1265.2"></meta>
+      </head>
+      <body>
+          <p class="p1"><b>「ブログっぽいものを作るツール」をGoで書き直した</b></p>
+          <p class="p2"><b></b><br/></p>
+          <p class="p3"><b>概要</b></p>
+          <p class="p3"><span class="Apple-tab-span">	</span>ブログっぽいものをMacのTextEditorで描いて吐き出すツール「publi.sh」っつーのがあったのだが、</p>
+          <p class="p3"><span class="Apple-tab-span">	</span>ちょっと時間出来てGolangで書き直してみる事にした。</p>
+          <p class="p2"><br/></p>
+          <p class="p3"><span class="Apple-tab-span">	</span>名前は、、、gopublishでいいや。</p>
+          <p class="p2"><span class="Apple-tab-span">	</span></p>
+          <p class="p2"><br/></p>
+          <p class="p2"><br/></p>
+          <p class="p3"><b>オリジナル</b></p>
+          <p class="p3"><span class="Apple-tab-span">	</span>こういうテキストエディットの画面から、この記事を作成している。</p>
+          <p class="p4"><img src="%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202014-07-22%201.27.56.png" alt="スクリーンショット 2014-07-22 1.27.56.png"/></p>
+          <p class="p2"><br/></p>
+          <p class="p3"><b>サンプル文章</b></p>
+          <p class="p5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean condimentum cursus tincidunt. Proin vitae tincidunt ligula, eu interdum sem. Donec et est egestas ligula feugiat fringilla ut ut tellus. Proin ornare, dui vel porttitor convallis, justo est ultrices ligula, quis venenatis dui metus et risus. Cras at eros vitae ante tincidunt semper. Nunc sollicitudin egestas magna, id aliquam ipsum ultrices nec. Nunc ut dictum dui. Donec ornare ligula consequat, blandit leo eu, vehicula erat. Vivamus vel sem a ipsum porta viverra in quis urna. Nullam egestas odio in arcu faucibus porta ac at est. Maecenas mauris lorem, tristique sed mi sagittis, ultricies ullamcorper nunc. Pellentesque ante leo, malesuada et sem quis, cursus posuere mi. Sed a sapien at massa molestie rutrum.</p>
+          <p class="p5">Ut semper, orci nec ullamcorper rhoncus, elit felis fermentum lectus, vitae dapibus arcu orci vitae tortor. Integer fringilla nunc nec dui pharetra, quis dapibus nisl dignissim. Cras at vulputate urna, vitae volutpat sapien. Vestibulum rutrum lorem vitae erat tincidunt tristique. In ut nisi purus. Praesent aliquet scelerisque volutpat. Integer sodales arcu et adipiscing elementum. Cras quis lacinia nunc, nec molestie erat. Vivamus id massa luctus, condimentum urna non, cursus nulla.</p>
+          <p class="p5">Sed id est magna. Proin feugiat ligula sollicitudin, bibendum justo a, mattis turpis. Quisque quis justo at dui faucibus cursus. Nullam et pulvinar nunc. Donec vitae ligula sit amet diam porta porttitor ac sagittis nisl. Donec ligula est, ultricies eu vehicula nec, egestas placerat purus. Ut ornare, lectus in hendrerit mattis, orci metus vehicula erat, sed laoreet felis nulla in lorem. Nulla suscipit augue quis lectus cursus mollis. Sed malesuada adipiscing elementum. Vestibulum id urna ullamcorper, adipiscing odio vel, consectetur enim. Etiam nisi arcu, volutpat vel venenatis quis, mollis sit amet dui. Mauris vitae magna dignissim, volutpat leo eget, fringilla eros. Nullam nulla magna, elementum vitae mollis non, bibendum vitae tortor. Nulla placerat purus in ligula ullamcorper pulvinar. Cras sed facilisis massa, nec condimentum justo. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
+          <p class="p5">Praesent scelerisque ligula dolor, ac hendrerit magna aliquam sed. Aliquam tincidunt pretium dui, et ornare nunc. Aliquam erat volutpat. Donec sit amet gravida tortor. Nullam nec placerat arcu. Mauris tristique nunc aliquam est consectetur, sit amet congue sapien ullamcorper. Nulla sagittis, urna non fringilla malesuada, eros turpis malesuada arcu, ac venenatis diam lectus vel orci. Maecenas laoreet lectus et orci pharetra laoreet. Phasellus vel tristique lacus.</p>
+          <p class="p5">Pellentesque quis feugiat dolor, nec mattis nisl. Sed non purus ac sapien rhoncus mollis. In et orci porta, pretium nibh ut, commodo nulla. Morbi et metus mattis, feugiat quam mollis, pulvinar libero. Mauris accumsan ornare urna eu aliquam. Sed mollis eros fringilla libero hendrerit mollis. In nisi nisl, porta eget sapien non, dictum vestibulum ante. Nam lacus tellus, egestas sed dolor at, convallis scelerisque turpis. Proin nec velit elit. Curabitur a tincidunt risus, vel volutpat nunc. Curabitur et semper orci. Nullam tincidunt, quam blandit lacinia euismod, dolor turpis egestas orci, ut viverra turpis sapien ac mauris. Fusce hendrerit massa nulla, id luctus dolor imperdiet a. Ut at pellentesque turpis. Cras vitae tortor vel ante volutpat faucibus sed at orci.</p>
+          <p class="p6"><b>Generated 5 paragraphs, 511 words, 3416 bytes of </b><a href="http://www.lipsum.com/"><span class="s1"><b>Lorem Ipsum</b></span></a></p>
+          <p class="p2"><span class="Apple-tab-span">	</span></p>
+          <p class="p7"><span class="s2"><span class="Apple-tab-span">	</span></span><span class="s3">いろんな</span><span class="s4">font</span>を使ったり</p>
+          <p class="p3"><span class="Apple-tab-span">	</span>(順にDFPゴシック, Time, Osaka)</p>
+          <p class="p2"><br/></p>
+          <p class="p3"><span class="Apple-tab-span">	</span>リンクとか</p>
+          <p class="p3"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><a href="http://sassembla.github.com/Public/">http://sassembla.github.com/Public/</a></p>
+          <p class="p2"><br/></p>
+          <p class="p3"><span class="Apple-tab-span">	</span><span class="s1">下線がひけたり</span>とかする。</p>
+          <p class="p2"><br/></p>
+          <p class="p3"><span class="Apple-tab-span">	</span>斜体にできたりとか<span class="s5"><i>nice boat</i></span>感ある。</p>
+          <p class="p2"><br/></p>
+          <p class="p2"><br/></p>
+          <p class="p3"><b>ネタ画像</b></p>
+          <p class="p4"><span class="Apple-tab-span">	</span><img src="%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202014-05-03%2023.30.31.png" alt="スクリーンショット 2014-05-03 23.30.31.png"/></p>
+          <p class="p3"><b>サンプル2</b></p>
+          <p class="p3"><span class="s6"><b><span class="Apple-tab-span">	</span></b></span><b>画像サンプル2、キモい生き物を中央揃えで</b></p>
+          <p class="p8"><img src="kaiteteturai.png" alt="kaiteteturai.png"/></p>
+          <p class="p9"><br/></p>
+          <p class="p9"><br/></p>
+          <p class="p3"><b>Codeとか</b></p>
+          <p class="p3"><span class="Apple-tab-span">	</span>たとえばXcodeとかで書いたコードはいろいろシンタックスハイライトとかで綺麗に見える訳ですが。</p>
+          <p class="p3"><span class="Apple-tab-span">	</span>頑張りたくないので書いたのがそのままhtmlにならねーかなーと思うんだわ。</p>
+          <p class="p3"><span class="Apple-tab-span">	</span>んでそのうえで、強調とかをしたい。</p>
+          <p class="p2"><br/></p>
+          <p class="p10"><span class="s7">#import </span>"AppDelegate.h"</p>
+          <p class="p11"><br/></p>
+          <p class="p12">@implementation<span class="s8"> AppDelegate</span></p>
+          <p class="p11"><br/></p>
+          <p class="p13">- (<span class="s9">BOOL</span>)application:(<span class="s10">UIApplication</span> *)application didFinishLaunchingWithOptions:(<span class="s10">NSDictionary</span> *)launchOptions</p>
+          <p class="p13">{</p>
+          <p class="p14"><span class="s8"><span class="Apple-converted-space">    </span></span><span class="s9">self</span><span class="s8">.</span><span class="s11">window</span><span class="s8"> = [[</span><span class="s10">UIWindow</span><span class="s8"> </span>alloc<span class="s8">] </span>initWithFrame<span class="s8">:[[</span><span class="s10">UIScreen</span><span class="s8"> </span>mainScreen<span class="s8">] </span>bounds<span class="s8">]];</span></p>
+          <p class="p15"><span class="s8"><span class="Apple-converted-space">    </span></span>// Override point for customization after application launch.</p>
+          <p class="p16"><span class="s8"><span class="Apple-converted-space">    </span></span><span class="s9">self</span><span class="s8">.</span><span class="s11">window</span><span class="s8">.</span>backgroundColor<span class="s8"> = [</span>UIColor<span class="s8"> </span><span class="s12">whiteColor</span><span class="s8">];</span></p>
+          <p class="p14"><span class="s8"><span class="Apple-converted-space">    </span>[</span><span class="s9">self</span><span class="s8">.</span><span class="s11">window</span><span class="s8"> </span>makeKeyAndVisible<span class="s8">];</span></p>
+          <p class="p12"><span class="s8"><span class="Apple-converted-space">    </span></span>return<span class="s8"> </span>YES<span class="s8">;</span></p>
+          <p class="p13">}</p>
+          <p class="p2"><b></b><br/></p>
+          <p class="p3"><b>ToDoとか</b></p>
+          <p class="p3"><span class="Apple-tab-span">	</span>・コードのコピペしたものを、どう囲むか、っていうのが問題。以前は色でなんとかしていたが、</p>
+          <p class="p3"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>機構による制約がなくて、ルールが産まれてしまっていた。無駄なルールは殺したい。</p>
+          <p class="p2"><br/></p>
+          <p class="p3"><span class="Apple-tab-span">	</span>・デザインについて、せめてヘッダとフッタはつけよう、という話。</p>
+          <p class="p3"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>誰が描いたかはもっと外側に表示されればいいよねーって話はあったので、まあはい。</p>
+          <p class="p2"><br/></p>
+          <p class="p3"><span class="Apple-tab-span">	</span>・外部画像リンクを描いてどうこう、っていう手順を実現する気が無い。のでやらないで良いと思っている。</p>
+          <p class="p9"><br/></p>
+          <p class="p9"><br/></p>
+          <p class="p9"><br/></p>
+      </body>
+  </html>
