@@ -1,14 +1,14 @@
 package main
 
 import (
-	"fmt"
-	"os"
-	"os/exec"
-	"io/ioutil"
-	"path"
-	"strings"
 	"bufio"
 	"encoding/xml"
+	"fmt"
+	"io/ioutil"
+	"os"
+	"os/exec"
+	"path"
+	"strings"
 )
 
 /*
@@ -21,18 +21,18 @@ type html struct {
 
 type HtmlHead struct {
 	Title string `xml:"title"`
-	Stl Style `xml:"style"`
-	Met []Meta `xml:"meta"`
+	Stl   Style  `xml:"style"`
+	Met   []Meta `xml:"meta"`
 }
 
 type Style struct {
 	StyleBodies string `xml:",chardata"`
-	Type string `xml:"type,attr"`
+	Type        string `xml:"type,attr"`
 }
 
 type Meta struct {
 	Http_equiv string `xml:"http-equiv,attr"`
-	Content string `xml:"content,attr"`
+	Content    string `xml:"content,attr"`
 }
 
 type HtmlBody struct {
@@ -45,7 +45,6 @@ type PLine struct {
 	Cs string `xml:"class,attr"`
 }
 
-
 func main() {
 	/*
 		拡張子が.rtfdか.rtfのものがあれば、記事に変換する。
@@ -57,10 +56,9 @@ func main() {
 	*/
 	currentPath, _ := os.Getwd()
 
-
 	fileInfos, _ := ioutil.ReadDir(currentPath)
 
-	listUp := func () []string {
+	listUp := func() []string {
 		filePaths := []string{}
 
 		for _, fileInfo := range fileInfos {
@@ -69,7 +67,7 @@ func main() {
 
 			for _, targetExtension := range targetExtensions {
 				if fileExt == targetExtension {
-					filePaths = append(filePaths, fileName)	
+					filePaths = append(filePaths, fileName)
 				}
 			}
 		}
@@ -78,8 +76,7 @@ func main() {
 	}
 	targetFilePaths := listUp()
 
-
-	readHtmlFile := func (htmlFilePath string) string {
+	readHtmlFile := func(htmlFilePath string) string {
 		input, _ := os.Open(htmlFilePath)
 
 		var lines string
@@ -90,8 +87,8 @@ func main() {
 			line := scanner.Text()
 
 			/**
-				fix unclosed xml literals.
-				diiiiiirrrrrrrttttttyyyyy hack,,,,
+			fix unclosed xml literals.
+			diiiiiirrrrrrrttttttyyyyy hack,,,,
 			*/
 			if strings.Contains(line, "<br>") {
 				line = strings.Replace(line, "<br>", "<br/>", -1)
@@ -116,13 +113,13 @@ func main() {
 		// ファイル名だけを取得
 		fileNameWithoutExt := strings.TrimSuffix(basePath, path.Ext(basePath))
 		folderName := fileNameWithoutExt
-		
+
 		// 同名のディレクトリを作り、basePathファイルを移動する
 		os.Mkdir(folderName, 0777)
-		os.Rename(currentPath + "/" + basePath, folderName + "/" + basePath)
+		os.Rename(currentPath+"/"+basePath, folderName+"/"+basePath)
 
 		targetPath := currentPath + "/" + folderName + "/" + basePath
-		
+
 		/*
 			html化
 			Macでしか動かないので移植するとしたらめっちゃ詰む箇所
@@ -130,12 +127,11 @@ func main() {
 		htmlize := exec.Command("textutil", "-convert", "html", targetPath)
 		htmlize.Output()
 
-
 		htmlFilePath := currentPath + "/" + folderName + "/" + fileNameWithoutExt + ".html"
 
 		var source html
 		data := readHtmlFile(htmlFilePath)
-		
+
 		/*
 			read data as xml
 		*/
@@ -152,17 +148,17 @@ func main() {
 		}
 
 		title := ""
-		
+
 		body := source.Body
 		pLines := body.PLines
-		
+
 		// 編集して、完了したら書き直す。
 		var replaceLines = make([]PLine, len(pLines))
 
 		for i, ln := range pLines {
 			lineContents := ln.Ln
-			
-			// if file:/// contains in line, 
+
+			// if file:/// contains in line,
 			if strings.Contains(lineContents, "file:///") {
 				lineContents = strings.Replace(lineContents, "file:///", "", -1)
 			}
@@ -172,21 +168,18 @@ func main() {
 		}
 
 		source.Body.PLines = replaceLines
-		
-		// set title
+
+		// TODO: set title まだ空。　あーーーーーーこういうTODO書くのGoでもやりたくない。TimeAssert書こう。
 		source.Head.Title = title
-		
-		
+
 		output, _ := os.Create(htmlFilePath)
 		enc := xml.NewEncoder(output)
 		enc.Indent("  ", "    ")
 		enc.Encode(source)
-	
 
 		// デバッグ、変形したファイルを戻す
 		if false {
-			os.Rename(folderName + "/" + basePath, currentPath + "/" + basePath)
+			os.Rename(folderName+"/"+basePath, currentPath+"/"+basePath)
 		}
 	}
 }
-

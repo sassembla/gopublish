@@ -11,3 +11,4 @@ generate html from Mac's TextEditor.app .rtf/.rtfd file.
 ## ToDo
 * make index.html from contents.
 * add header & footer
+* code highlight from copy&paste.
