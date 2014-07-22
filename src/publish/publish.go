@@ -147,8 +147,6 @@ func main() {
 			source.Head.Stl.StyleBodies = strings.Replace(style, "'", "", -1)
 		}
 
-		title := ""
-
 		body := source.Body
 		pLines := body.PLines
 
@@ -157,6 +155,13 @@ func main() {
 
 		for i, ln := range pLines {
 			lineContents := ln.Ln
+
+			// set title from contents
+			if i == 0 {
+				title := strings.Replace(lineContents, "<b>", "", -1)
+				title = strings.Replace(title, "</b>", "", -1)
+				source.Head.Title = title
+			}
 
 			// if file:/// contains in line,
 			if strings.Contains(lineContents, "file:///") {
@@ -169,16 +174,13 @@ func main() {
 
 		source.Body.PLines = replaceLines
 
-		// TODO: set title まだ空。　あーーーーーーこういうTODO書くのGoでもやりたくない。TimeAssert書こう。
-		source.Head.Title = title
-
 		output, _ := os.Create(htmlFilePath)
 		enc := xml.NewEncoder(output)
 		enc.Indent("  ", "    ")
 		enc.Encode(source)
 
 		// デバッグ、変形したファイルを戻す
-		if false {
+		if true {
 			os.Rename(folderName+"/"+basePath, currentPath+"/"+basePath)
 		}
 	}
